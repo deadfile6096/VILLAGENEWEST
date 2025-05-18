@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон -->
+  <rect width="32" height="32" fill="#87CEEB"/>
+  
+  <!-- Земля -->
+  <rect y="24" width="32" height="8" fill="#8b4513"/>
+  
+  <!-- Грядки -->
+  <rect x="4" y="24" width="8" height="4" fill="#5d4037"/>
+  <rect x="20" y="24" width="8" height="4" fill="#5d4037"/>
+  
+  <!-- Растения -->
+  <rect x="6" y="20" width="2" height="4" fill="#4caf50"/>
+  <rect x="8" y="20" width="2" height="4" fill="#4caf50"/>
+  <rect x="22" y="20" width="2" height="4" fill="#4caf50"/>
+  <rect x="24" y="20" width="2" height="4" fill="#4caf50"/>
+  
+  <!-- Домик фермы -->
+  <rect x="12" y="14" width="8" height="10" fill="#f5e8b5"/>
+  <rect x="14" y="20" width="4" height="4" fill="#a0522d"/> <!-- Дверь -->
+  <rect x="14" y="16" width="2" height="2" fill="#87CEEB"/> <!-- Окно -->
+  
+  <!-- Крыша -->
+  <polygon points="10,14 16,8 22,14" fill="#a0522d"/>
+  
+  <!-- Забор -->
+  <rect x="2" y="22" width="2" height="2" fill="#a0522d"/>
+  <rect x="6" y="22" width="2" height="2" fill="#a0522d"/>
+  <rect x="10" y="22" width="2" height="2" fill="#a0522d"/>
+  <rect x="24" y="22" width="2" height="2" fill="#a0522d"/>
+  <rect x="28" y="22" width="2" height="2" fill="#a0522d"/>
+  
+  <rect x="2" y="20" width="30" height="2" fill="#d7ccc8"/>
+</svg>

@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Age</title>
+    <link rel="icon" href="images/items/farm.jpg" type="image/jpeg">
+    <!-- Добавляем дополнительные размеры фавикона для разных устройств -->
+    <link rel="apple-touch-icon" href="images/items/farm.jpg">
+    <link rel="icon" type="image/svg+xml" href="images/farm-favicon.svg">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="images/items/farm.jpg">
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="images/items/farm.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="css/nes.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <audio id="connect-sound" src="media/misc.wav"></audio>
+    <!-- Иконка звука в левом нижнем углу -->
+    <div id="sound-icon" style="position: fixed; bottom: 30px; left: 30px; cursor: pointer">
+      <img src="images/voice.png" alt="Sound Icon" width="64" height="64">
+    </div>
+    <!-- Элемент аудио, который будет воспроизводить звук -->
+    <audio id="audio" src="media/audio.mp3" preload="auto"></audio>
+
+    <div class="bg">
+      <div class="container">
+        <!-- Balance Bar -->
+
+        <!-- Vertical Menu -->
+        <aside class="menu">
+          <div class="nes-container with-title">
+            <h3 class="title"></h3>
+            <div>
+              <div class="lists">
+                <ul class="nes-list is-circle" style="margin-bottom: 0; padding: 0">
+                  <p class="po">Balance: <span id="balance">0</span> $CAPITAL</p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="menu-item" data-tab="home"><img src="images/menu/home.png" alt="Home" width="32" height="32"> Home</button>
+          <button class="menu-item" data-tab="economy">
+            <img src="images/menu/docs.png" alt="Docs" width="24" height="24"> Docs (whitepaper)
+          </button>
+          <button class="menu-item" data-tab="citizens"><img src="images/menu/citizens.png" alt="Citizens" width="24" height="24"> Citizens</button>
+          <button class="menu-item" data-tab="marketplace">
+            <img src="images/menu/marketplace.png" alt="Marketplace" width="24" height="24"> Marketplace
+          </button>
+          <button class="menu-item" data-tab="create"><img src="images/menu/create.png" alt="Create" width="24" height="24"> Create a good</button>
+          <button class="menu-item" data-tab="soc"><img src="images/menu/socials.png" alt="Socials" width="24" height="24"> Socials</button>
+
+          <div class="generate">
+            <div id="profile-status">
+              your profile: <span style="color: red">not connected</span>
+            </div>
+            <button id="connect-button">Connect</button>
+            <div class="avatar"></div>
+            <div class="buttons1">
+              <button id="generate-button">Generate avatar</button>
+              <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+              <button id="add-button">Add</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Content Section -->
+        <main class="content">
+          <!-- Home Tab -->
+          <div class="tab" id="home">
+
+            <h1>WELCOME TO Market Age</h1>
+            <p>
+              SYSTEM STATUS:
+              <span class="blinking-text" style="color: #1e7e34">ONLINE</span>
+            </p>
+            <p>
+              Market Age is an autonomous digital ecosystem powered by $CAPITAL.
+              This 8-VILLAGE simulation operates with precision and efficiency,
+              where citizens are created, interact, and contribute to the
+              virtual economy.
+            </p>
+            <ul>
+              <ol>
+                <strong class="strong">CREATE CITIZEN:</strong>
+                Initiate a new 8-VILLAGE avatar.
+              </ol>
+              <ol>
+                <strong class="strong">TRADE GOODS:</strong>
+                Exchange digital assets within the marketplace using $CAPITAL.
+              </ol>
+              <ol>
+                <strong class="strong">DESIGN ASSETS:</strong>
+                Contribute by creating unique digital utilities and items.
+              </ol>
+            </ul>
+            <p>
+              Every action you take in this environment affects the system’s
+              dynamics. Build, trade, and innovate to enhance the collective.
+            </p>
+          </div>
+
+          <div class="tab" id="doc" style="display: none">
+            <div class="docs"></div>
+          </div>
+
+          <div class="tab" id="soc" style="display: none">
+            <h1>SOCIALS</h1>
+            <div class="button-row">
+              <a href="https://x.com/market_age" target="_blank"><button id="tg" class="menu-item">X</button></a>
+              <a href="https://x.com/market_age" target="_blank"><button id="capital-btn" class="menu-item">$CAPITAL</button></a>
+              <a href="https://x.com/market_age" target="_blank"><button id="dex-btn" class="menu-item">Dex</button></a>
+            </div>
+          </div>
+
+          <div class="tab" id="create" style="display: none">
+            <div class="form-container">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label for="desc">Description</label>
+                <input type="text" id="desc" class="form-input" placeholder="Enter description">
+              </div>
+              <div class="form-group">
+                <label for="additional">Additional Info</label>
+                <input type="text" id="additional" class="form-input" placeholder="Enter additional info">
+              </div>
+              <div class="form-group">
+                <label for="additional">Price</label>
+                <input type="text" id="asdadsdas" class="form-input" placeholder="Enter price">
+              </div>
+              <button id="create-btn" class="create-btn">Create</button>
+              <p id="soon-msg" class="soon-msg">Soon</p>
+            </div>
+          </div>
+
+          <div class="tab" id="economy" style="display: none">
+            <div class="eco">
+              <h3 class="section-title">Abstract</h3>
+              <p>
+                The Market Age represents a speculative exploration into a
+                virtual, autonomous 8-VILLAGE world where creativity, trade, and
+                community coexist. Citizens engage through customizable avatars,
+                participate in a vibrant marketplace powered by $CAPITAL, and
+                contribute to a dynamic economic and social simulation. The
+                project envisions an evolving ecosystem driven by participant
+                innovation, offering the potential to redefine interaction and
+                value creation in a nostalgic, pixelated environment.
+              </p>
+
+              <h3 class="section-title">1. Introduction</h3>
+              <h4>1.1 Vision</h4>
+              <p>
+                The Market Age is an experimental concept blending the charm
+                of retro 8-VILLAGE aesthetics with innovative digital economies. The
+                goal is to create a thriving virtual world that evolves with its
+                citizens, encouraging creativity, community, and interaction.
+              </p>
+
+              <h4>1.2 Objectives</h4>
+              <div class="list-container">
+                <ul>
+                  <li>
+                    An immersive and accessible environment for participants to
+                    interact with 8-VILLAGE avatars and explore a virtual economy.
+                  </li>
+                  <li>
+                    Opportunities for users to design unique digital assets,
+                    potentially contributing to a growing ecosystem.
+                  </li>
+                  <li>
+                    A simulation where trade, innovation, and creativity align
+                    with an interactive and decentralized ethos.
+                  </li>
+                </ul>
+              </div>
+
+              <h4>1.3 Conceptual Inspiration</h4>
+              <p>
+                This initiative draws from the timeless appeal of 8-VILLAGE visuals
+                and incorporates ideas from modern economic and community-driven
+                systems. By empowering users to create and trade, the Market Age proposes a model for fostering an engaging,
+                community-centric digital society.
+              </p>
+
+              <h3 class="section-title">2. Core Concepts</h3>
+              <h4>2.1 The Market Age Simulation</h4>
+              <div class="highlight">
+                <p>
+                  <strong>A Living Ecosystem:</strong> The VILLAGE serves as a
+                  simulated, self-sustaining virtual environment where citizens
+                  participate in everyday activities, trade, and creative
+                  expression.
+                </p>
+                <p>
+                  <strong>Customizable Avatars:</strong> Participants craft
+                  unique pixelated characters that inhaVILLAGE the virtual world,
+                  shaping their presence within the community.
+                </p>
+              </div>
+
+              <h4>2.2 The $CAPITAL Economy</h4>
+              <p>
+                <strong>Currency Overview:</strong> $CAPITAL serves as the core unit
+                of exchange in the Market Age, enabling citizens to trade,
+                purchase, and innovate within the simulation.
+              </p>
+              <p>
+                <strong>Goods and Resources:</strong> Citizens can access
+                virtual items, ranging from Gold $CAPITAL (representing significant
+                value, such as 1,000 $CAPITAL per plate) to everyday utilities and
+                custom user-generated assets.
+              </p>
+
+              <h4>2.3 User-Generated Assets</h4>
+              <div class="highlight">
+                <p>
+                  <strong>Design Your Creations:</strong> Participants have the
+                  opportunity to conceptualize and introduce new digital goods,
+                  utilities, or services that enhance the simulation experience.
+                </p>
+                <p>
+                  <strong>A Marketplace for Trade:</strong> An open trading
+                  system allows citizens to exchange goods, fostering a dynamic
+                  and interactive economy.
+                </p>
+              </div>
+
+              <h4>2.4 Governance</h4>
+              <p>
+                The project encourages collaborative decision-making, where
+                participants can propose and vote on potential changes or
+                additions to the virtual world. Governance models could explore
+                proportional influence based on $CAPITAL holdings or active
+                participation metrics.
+              </p>
+
+              <h3 class="section-title">3. Key Features</h3>
+              <h4>3.1 Citizen Creation</h4>
+              <p>
+                <strong>Custom Avatars:</strong> Citizens personalize their
+                pixelated characters, showcasing creativity and individual
+                identity.
+              </p>
+              <p>
+                <strong>A Social Identity:</strong> Avatars interact in a shared
+                environment, enabling friendships, collaborations, and cultural
+                exchanges.
+              </p>
+
+              <h4>3.2 Economic Framework</h4>
+              <div class="highlight">
+                <p>
+                  <strong>The Role of $CAPITAL:</strong> $CAPITAL facilitates trade and
+                  commerce, encouraging participants to engage in meaningful
+                  economic interactions.
+                </p>
+                <p>
+                  <strong>Earning $CAPITAL:</strong> Through crafting, trading, or
+                  participating in VILLAGE activities.
+                </p>
+                <p>
+                  <strong>Spending $CAPITAL:</strong> On virtual goods, real estate,
+                  or user-created utilities.
+                </p>
+                <p>
+                  <strong>Gold $CAPITAL and Silver $CAPITAL:</strong> These higher-value
+                  denominations allow for savings-like functionality or the
+                  accumulation of wealth.
+                </p>
+              </div>
+
+              <h4>3.3 Asset Creation and Trade</h4>
+              <p>
+                <strong>Creative Freedom:</strong> Citizens are invited to
+                imagine and implement virtual goods or tools, ranging from
+                decorative items to functional utilities like farming tools or
+                virtual entertainment.
+              </p>
+              <p>
+                <strong>A Thriving Marketplace:</strong> Participants can trade
+                their creations, fostering a diverse and evolving economic
+                landscape.
+              </p>
+
+              <h4>3.4 Community and Culture</h4>
+              <p>
+                The simulation could host collaborative events, cultural
+                exchanges, and communal projects, building a sense of belonging
+                and shared purpose.
+              </p>
+
+              <h3 class="section-title">4. Technical Architecture</h3>
+              <h4>4.1 Platform Foundations</h4>
+              <p>
+                Designed as an accessible simulation compatible across devices,
+                with potential scalability to accommodate more participants and
+                features over time.
+              </p>
+
+              <h4>4.2 Security Measures</h4>
+              <p>
+                Data integrity and asset ownership are protected through
+                encryption and token-like verification mechanisms.
+              </p>
+
+              <h4>4.3 Flexible Scalability</h4>
+              <p>
+                The platform may adapt to growing user bases, evolving demands,
+                or new technologies as the community and simulation expand
+                organically.
+              </p>
+
+              <h3 class="section-title">5. Economic Model</h3>
+              <h4>5.1 Earning $CAPITAL</h4>
+              <p>
+                Various activities within the VILLAGE, including crafting,
+                trading, or participating in VILLAGE-wide initiatives, offer
+                opportunities to earn $CAPITAL Creative and innovative
+                contributions, such as in-demand digital goods, may yield higher
+                economic rewards.
+              </p>
+
+              <h4>5.2 Spending $CAPITAL</h4>
+              <p>
+                Citizens can allocate their $CAPITAL toward acquiring goods,
+                services, or virtual real estate. High-value items, like Gold
+                $CAPITAL plates, could function as stores of value within the
+                economic system.
+              </p>
+
+              <h4>5.3 Dynamic Marketplace</h4>
+              <p>
+                Supply and demand dynamics govern pricing, promoting a
+                self-regulating market system.
+              </p>
+
+              <h3 class="section-title">6. Governance Framework</h3>
+              <h4>6.1 Citizen Participation</h4>
+              <p>
+                Decisions regarding potential features or economic adjustments
+                could be influenced by community discussions or voting
+                mechanisms.
+              </p>
+
+              <h4>6.2 Encouraging Innovation</h4>
+              <p>
+                Governance may prioritize proposals that enhance creativity,
+                sustainability, or inclusivity within the simulation.
+              </p>
+
+              <h3 class="section-title">7. Conceptual Growth</h3>
+              <h4>Exploration of Features</h4>
+              <p>
+                The Market Age continues to evolve, encouraging innovation,
+                interaction, and creativity among its growing population. Future
+                enhancements could include new gameplay mechanics, social
+                interactions, and advanced digital economies.
+              </p>
+            </div>
+          </div>
+
+          <!-- Marketplace Tab -->
+          <div class="tab" id="marketplace" style="display: none">
+            <h1>Marketplace</h1>
+            <div id="marketplace-container" class="cards-container"></div>
+            <div class="cards" id="marketplace-cards"></div>
+          </div>
+
+          <!-- Citizens Tab -->
+          <div class="tab" id="citizens" style="display: none">
+            <h1>Citizens</h1>
+            <div id="citizens-list" class="cards-container"></div>
+          </div>
+          
+          <!-- Modal for citizen/item details -->
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span id="close-modal" class="close">&times;</span>
+              <h2 id="modal-text">Item Details</h2>
+              <p id="modal-description">Description goes here</p>
+              <p id="modal-price">Price: $0</p>
+              <button id="buy-btn">Buy</button>
+              <button id="sell-btn">Sell</button>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- Success Modal -->
+      <div id="success-modal" style="display: none">
+        <div class="modal-content">
+          <span id="close-success-modal" class="close">&times;</span>
+          <h2 style="margin: 10px 0;">Success!</h2>
+          <p id="success-message">Operation completed successfully!</p>
+          <button id="close-success-btn" class="modal-btn">Close</button>
+        </div>
+      </div>
+
+      <div id="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close" id="modal-close">&times;</span>
+          <div class="modal-header">
+            <h2 id="modal-text">Modal Title</h2>
+          </div>
+          <div class="modal-body">
+            <div class="modal-image-container">
+              <img id="modal-image" src="images/BIT.png" alt="Item" width="100" height="100">
+            </div>
+            <div class="modal-info">
+              <p id="modal-description">Description of the item.</p>
+              <p id="modal-price" class="price-tag">Price: $0</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="buy-btn" class="modal-btn">Buy</button>
+            <button id="sell-btn" class="modal-btn" style="display: none">Sell</button>
+            <button id="close-modal" class="modal-btn">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/index.js"></script>
+    </div>
+    
+    <!-- Контейнер для мини-мобов -->
+    <div id="mobs-container"></div>
+
+    <!-- JavaScript для анимации мини-мобов -->
+    <script src="js/mobs.js"></script>
+  
+
+</body></html>
