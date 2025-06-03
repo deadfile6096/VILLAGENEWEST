@@ -1,5 +1,5 @@
 document.getElementById("tg").addEventListener("click", function () {
-  const url = "https://x.com/Ranchonomics"; // Обновленная ссылка на Twitter
+  const url = "https://x.com/ashwood_oakmark"; // Обновленная ссылка на Twitter
   window.open(url, '_blank'); // Открываем в новой вкладке
 });
 
