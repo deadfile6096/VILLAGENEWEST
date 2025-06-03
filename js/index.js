@@ -321,24 +321,24 @@ let userCitizens = [];
 let marketplaceItems = [
   {
     id: 1,
-    name: "Gold $CAPITAL",
+    name: "Gold $OAKMARK",
     description:
-      "Popular $CAPITAL storage method in village, Gold $CAPITAL is always equal to 1000$ $CAPITAL",
+      "Popular $OAKMARK storage method in village, Gold $OAKMARK is always equal to 1000$ $OAKMARK",
     price: 1000,
     image: "images/items/gold_house.jpg",
   },
   {
     id: 2,
-    name: "Silver $CAPITAL",
+    name: "Silver $OAKMARK",
     description:
-      "Popular $CAPITAL storage method in village, Silver $CAPITAL is always equal to 100$ $CAPITAL",
+      "Popular $OAKMARK storage method in village, Silver $OAKMARK is always equal to 100$ $OAKMARK",
     price: 100,
     image: "images/items/silver_house.jpg",
   },
   {
     id: 3,
     name: "Experience",
-    description: "Boost your profile leaderboard rank in $CAPITAL verse.",
+    description: "Boost your profile leaderboard rank in $OAKMARK verse.",
     price: 500,
     image: "images/items/expirence.jpg",
   },
@@ -596,7 +596,7 @@ document.getElementById("connect-button").addEventListener("click", () => {
   balanceDisplay.textContent = balance;
   
   // Показываем сообщение об успехе
-  showSuccessMessage("Wallet connected successfully! You received 1000 $CAPITAL");
+  showSuccessMessage("Wallet connected successfully! You received 1000 $OAKMARK");
 });
 
 // Инициализация при загрузке страницы
