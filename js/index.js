@@ -1,5 +1,5 @@
 document.getElementById("tg").addEventListener("click", function () {
-  const url = "https://x.com/ashwood_oakmark"; // Обновленная ссылка на Twitter
+  const url = "https://x.com/ashwood_FARM"; // Обновленная ссылка на Twitter
   window.open(url, '_blank'); // Открываем в новой вкладке
 });
 
@@ -321,24 +321,24 @@ let userCitizens = [];
 let marketplaceItems = [
   {
     id: 1,
-    name: "Gold $OAKMARK",
+    name: "Gold $FARM",
     description:
-      "Popular $OAKMARK storage method in village, Gold $OAKMARK is always equal to 1000$ $OAKMARK",
+      "Popular $FARM storage method in village, Gold $FARM is always equal to 1000$ $FARM",
     price: 1000,
     image: "images/items/gold_house.jpg",
   },
   {
     id: 2,
-    name: "Silver $OAKMARK",
+    name: "Silver $FARM",
     description:
-      "Popular $OAKMARK storage method in village, Silver $OAKMARK is always equal to 100$ $OAKMARK",
+      "Popular $FARM storage method in village, Silver $FARM is always equal to 100$ $FARM",
     price: 100,
     image: "images/items/silver_house.jpg",
   },
   {
     id: 3,
     name: "Experience",
-    description: "Boost your profile leaderboard rank in $OAKMARK verse.",
+    description: "Boost your profile leaderboard rank in $FARM verse.",
     price: 500,
     image: "images/items/expirence.jpg",
   },
@@ -596,7 +596,7 @@ document.getElementById("connect-button").addEventListener("click", () => {
   balanceDisplay.textContent = balance;
   
   // Показываем сообщение об успехе
-  showSuccessMessage("Wallet connected successfully! You received 1000 $OAKMARK");
+  showSuccessMessage("Wallet connected successfully! You received 1000 $FARM");
 });
 
 // Инициализация при загрузке страницы
