@@ -1,5 +1,5 @@
 document.getElementById("tg").addEventListener("click", function () {
-  const url = "https://x.com/ashwood_FARM"; // Обновленная ссылка на Twitter
+  const url = "https://x.com/dustwoodvillage"; // Обновленная ссылка на Twitter
   window.open(url, '_blank'); // Открываем в новой вкладке
 });
 
